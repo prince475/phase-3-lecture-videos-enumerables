@@ -1,10 +1,6 @@
-# Video: Enumerables
-
-<iframe src="https://player.vimeo.com/video/593547595/?title=0&byline=0&portrait=0" width="640" height="360" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen; picture-in-picture"></iframe>
-<code>require 'pry'</code>
+require 'pry'
 # enumarables in hashes
 
-<code>
 books = [
   {
     title: 'Intro to Ruby Programming: Begginers Guide Series',
@@ -63,34 +59,33 @@ books = [
     description: 'An Agile Premier Using Ruby'
   }
 ]
-</code>
-
-# each method: loops through array
-<code>
+# each
+# loops through array
 def print_books
   books.each { |b| puts b }
     puts b
 end
-</code>
+# collect
+# returns a new array based on some conditions
+titles = books.collect {|b| b[:title]}
 
-# collect method: returns a new array based on some conditions
-<code>titles = books.collect {|b| b[:title]}</code>
-
-# select method: filters out elements based on a condition
-<code>cheaper = books.select { |b| b[:price] > 28 }</code>
-
-
-# find method: finds first element matching the given condition
-<code>author = books.find { |b| b[:author] == 'Yukihiro Matsumoto'}</code>
+# select
+# filters out elements based on a condition
+cheaper = books.select { |b| b[:price] > 28 }
 
 
-# sum method: sums total for all elements
-<code>total = books.sum { |b| b[:price] }</code>
+# find
+# finds first element matching the given condition
+author = books.find { |b| b[:author] == 'Yukihiro Matsumoto'}
 
 
-# max method: finds highest value in an array
-<code>best_book = books.max { |b| b[:rating] }</code>
+# sum
+# sums total for all elements
+total = books.sum { |b| b[:price] }
+
+
+# max
+# finds highest value in an array
+best_book = books.max { |b| b[:rating] }
 
 binding.pry
-
-
